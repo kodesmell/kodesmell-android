@@ -1,0 +1,49 @@
+query KodesQuery{
+    kodes{
+        id,
+        message,
+        hash,
+        code,
+        fileName,
+        lineNumber,
+        project {
+            id,
+            name
+        }
+    }
+}
+
+
+
+type Kode {
+  id: ID!
+  message: String
+  hash: String!
+  code: String!
+  fileName: String!
+  lineNumber: Int!
+}
+
+input KodeInput {
+  message: String
+  hash: String!
+  fileName: String!
+  code: String!
+  line: String!
+  lineNumber: Int!
+}
+
+type Mutation {
+  newKode(input: [KodeInput]): [Kode]
+}
+
+type Query {
+  kodes: [Kode]
+  user(id: ID!): User
+}
+
+type User {
+  id: ID!
+  email: String
+}
+
