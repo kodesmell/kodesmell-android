@@ -71,6 +71,7 @@ dependencies {
 
     compile "com.android.support:appcompat-v7:$support_version"
     compile "com.android.support:recyclerview-v7:$support_version"
+    compile "com.android.support:cardview-v7:$support_version"
 
     compile "com.android.support.constraint:constraint-layout:$constraint_version"
 
@@ -98,5 +99,7 @@ dependencies {
     compile "android.arch.lifecycle:runtime:$components_version"
     compile "android.arch.lifecycle:extensions:$components_version"
     kapt "android.arch.lifecycle:compiler:$components_version"
+
+    compile 'com.github.softwee:codeview-android:1.2.0'
 
 }
