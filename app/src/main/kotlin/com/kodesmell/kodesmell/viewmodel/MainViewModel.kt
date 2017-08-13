@@ -5,7 +5,7 @@ import com.apollographql.apollo.rx2.Rx2Apollo
 import com.kodesmell.kodesmell.KodesQuery
 import com.kodesmell.kodesmell.api.ApiManager
 import com.kodesmell.kodesmell.api.convert.KodeConvert
-import com.kodesmell.kodesmell.model.Kode
+import com.kodesmell.kodesmell.model.Kodesmell
 import io.reactivex.Observable
 import io.reactivex.schedulers.Schedulers
 
@@ -14,7 +14,7 @@ import io.reactivex.schedulers.Schedulers
  */
 class MainViewModel : ViewModel() {
     val api = ApiManager().getClient()
-    fun getKode(): Observable<List<Kode>> {
+    fun getKode(): Observable<List<Kodesmell>> {
         val kodeQuery = KodesQuery.builder().build()
         val watcher = api.query(kodeQuery).watcher()
         return Rx2Apollo.from(watcher)
