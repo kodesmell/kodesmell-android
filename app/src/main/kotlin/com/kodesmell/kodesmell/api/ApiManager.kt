@@ -9,6 +9,7 @@ import okhttp3.logging.HttpLoggingInterceptor
  * Created by sangcomz on 12/08/2017.
  */
 
+// ;) API ApiManager 코드 정리
 class ApiManager {
 
     private val BASE_URL = "http://192.168.35.167:8000/graphql"
