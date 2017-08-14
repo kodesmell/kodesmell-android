@@ -5,15 +5,17 @@ query KodesQuery{
         hash,
         code,
         fileName,
-        lineNumber,
-        project {
-            id,
-            name
-        }
+        lineNumber
     }
 }
 
+input CreateKodesInput {
+  kodes: [KodeInput]
+}
 
+input CreateProjectInput {
+  name: String!
+}
 
 type Kode {
   id: ID!
@@ -22,6 +24,7 @@ type Kode {
   code: String!
   fileName: String!
   lineNumber: Int!
+  project: Project!
 }
 
 input KodeInput {
@@ -34,7 +37,13 @@ input KodeInput {
 }
 
 type Mutation {
-  newKode(input: [KodeInput]): [Kode]
+  createKodes(input: CreateKodesInput): [Kode]
+  createProject(input: CreateProjectInput): Project
+}
+
+type Project {
+  id: ID!
+  name: String!
 }
 
 type Query {
@@ -44,6 +53,7 @@ type Query {
 
 type User {
   id: ID!
-  email: String
+  email: String!
+  displayName: String!
 }
 

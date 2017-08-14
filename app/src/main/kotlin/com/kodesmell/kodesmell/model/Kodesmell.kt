@@ -9,4 +9,4 @@ data class Kodesmell(val id: String,
                      val code: String?,
                      val fileName: String,
                      val lineNumber: Int,
-                     val project: Project)
+                     val project: Project? = null)

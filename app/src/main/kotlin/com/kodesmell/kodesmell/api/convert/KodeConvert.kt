@@ -11,7 +11,7 @@ fun KodeConvert(data: KodesQuery.Data?): ArrayList<Kodesmell> {
     val result = arrayListOf<Kodesmell>()
     data?.kodes()?.let {
         it.mapTo(result, {
-            Kodesmell(it.id(), it.message(), it.hash(), it.code(), it.fileName(), it.lineNumber(), Project(it.project().id(), it.project().__typename()))
+            Kodesmell(it.id(), it.message(), it.hash(), it.code(), it.fileName(), it.lineNumber(), null)
         })
     }
     return result
