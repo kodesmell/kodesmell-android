@@ -23,9 +23,10 @@
             android:layout_marginTop="8dp"
             android:fontFamily="sans-serif-middle"
             android:textColor="@color/code_content"
-            android:textSize="18sp"
+            android:textSize="20sp"
+            android:padding="8dp"
             android:textStyle="bold"
-            tools:text="Hi!!" />
+            tools:text="Message" />
 
         <io.github.kbiakov.codeview.CodeView
             android:id="@+id/cv_item_code"
@@ -33,6 +34,17 @@
             android:layout_height="wrap_content" />
 
     </LinearLayout>
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/img_item_full"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_margin="8dp"
+        android:padding="10dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        app:srcCompat="@drawable/ic_fullscreen_black_24dp" />
 
 </android.support.v7.widget.CardView>
 

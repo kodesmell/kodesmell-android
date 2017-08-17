@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         // ;) viewmodel 정리 (#fe006d5)
         val viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
         viewModel
-                .getKode()
+                .getKodesmells()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe { setView(it) }
     }

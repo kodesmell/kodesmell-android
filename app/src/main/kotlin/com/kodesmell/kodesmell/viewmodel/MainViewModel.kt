@@ -14,7 +14,7 @@ import io.reactivex.schedulers.Schedulers
  */
 class MainViewModel : ViewModel() {
     val api = ApiManager().getClient()
-    fun getKode(): Observable<List<Kodesmell>> {
+    fun getKodesmells(): Observable<List<Kodesmell>> {
         val kodeQuery = KodesQuery.builder().build()
         val watcher = api.query(kodeQuery).watcher()
         return Rx2Apollo.from(watcher)

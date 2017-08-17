@@ -12,7 +12,8 @@ import okhttp3.logging.HttpLoggingInterceptor
 // ;) API ApiManager 코드 정리 (#076e20d)
 class ApiManager {
 
-    private val BASE_URL = "http://192.168.35.167:8000/graphql"
+    private val BASE_URL = BuildConfig.API_URL
+    
     fun getClient(): ApolloClient = ApolloClient.builder()
             .serverUrl(BASE_URL)
             .okHttpClient(getOkHttpClient())
@@ -20,7 +21,6 @@ class ApiManager {
 
     private fun getOkHttpClient(): OkHttpClient {
         val builder = OkHttpClient.Builder()
-        //                .connectTimeout(1, TimeUnit.MILLISECONDS)
         builder.addInterceptor { chain ->
             val builder = chain
                     .request()
@@ -29,7 +29,9 @@ class ApiManager {
         }
 
         if (BuildConfig.DEBUG) {
-            builder.addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+            builder
+                    .addInterceptor(HttpLoggingInterceptor()
+                            .setLevel(HttpLoggingInterceptor.Level.BODY))
         }
 
         return builder.build()

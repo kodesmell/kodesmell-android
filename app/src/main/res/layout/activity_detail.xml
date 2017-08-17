@@ -10,12 +10,13 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
+        android:padding="8dp"
         android:layout_marginTop="8dp"
         android:fontFamily="sans-serif-middle"
         android:textColor="@color/code_content"
         android:textSize="18sp"
         android:textStyle="bold"
-        tools:text="Hi!!" />
+        tools:text="Message" />
 
     <io.github.kbiakov.codeview.CodeView
         android:id="@+id/cv_detail_code"

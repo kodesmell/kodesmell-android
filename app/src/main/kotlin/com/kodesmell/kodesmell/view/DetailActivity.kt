@@ -14,16 +14,25 @@ class DetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
+        setToolbar()
         setView()
     }
 
-    fun setView() {
-        val kodesmell = Gson().fromJson(intent.extras.getString("kodesmell"), Kodesmell::class.java)
+    private fun setToolbar() {
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    private fun setView() {
+        val kodesmell = Gson()
+                .fromJson(intent.extras.getString("kodesmell"),
+                        Kodesmell::class.java)
         txt_detail_message.text = kodesmell.message
+
 
         kodesmell.code?.let {
             cv_detail_code.setOptions(Options.Default.get(this)
                     .withCode(it)
+                    .withLanguage("java")
                     .withTheme(ColorTheme.MONOKAI))
         }
     }

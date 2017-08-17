@@ -2,6 +2,7 @@ package com.kodesmell.kodesmell.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.support.v7.widget.AppCompatImageView
 import android.support.v7.widget.AppCompatTextView
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -36,19 +37,27 @@ class KodeListAdapter(val kodesmells: List<Kodesmell>) : RecyclerView.Adapter<Ko
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val context: Context = itemView.context
-        val txtItemMessage = itemView.findViewById(R.id.txt_item_message) as AppCompatTextView
-        val cvItemCode = itemView.findViewById(R.id.cv_item_code) as CodeView
+
+        val txtItemMessage: AppCompatTextView
+                = itemView.findViewById<AppCompatTextView>(R.id.txt_item_message)
+
+        val cvItemCode: CodeView
+                = itemView.findViewById<CodeView>(R.id.cv_item_code)
+
+        val imgItemFull: AppCompatImageView
+                = itemView.findViewById<AppCompatImageView>(R.id.img_item_full)
+
         fun setItem(kode: Kodesmell) {
             txtItemMessage.text = kode.message
 
             kode.code?.let {
                 cvItemCode.setOptions(Options.Default.get(context)
                         .withCode(getShortCode(it.lines(), kode.lineNumber))
-                        .withShadows()
+                        .withLanguage("java")
                         .withTheme(ColorTheme.MONOKAI))
             }
 
-            itemView.setOnClickListener {
+            imgItemFull.setOnClickListener {
                 val i: Intent = Intent(context, DetailActivity::class.java)
                 i.putExtra("kodesmell", Gson().toJson(kode))
                 context.startActivity(i)
