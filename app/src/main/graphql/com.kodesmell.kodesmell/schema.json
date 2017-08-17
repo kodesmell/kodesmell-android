@@ -319,20 +319,16 @@
         "description": "",
         "fields": [
           {
-            "name": "newKode",
+            "name": "createKodes",
             "description": "",
             "args": [
               {
                 "name": "input",
                 "description": "",
                 "type": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "INPUT_OBJECT",
-                    "name": "KodeInput",
-                    "ofType": null
-                  }
+                  "kind": "INPUT_OBJECT",
+                  "name": "CreateKodesInput",
+                  "ofType": null
                 },
                 "defaultValue": null
               }
@@ -375,6 +371,31 @@
         ],
         "inputFields": null,
         "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
+        "name": "CreateKodesInput",
+        "description": "",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "kodes",
+            "description": "",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "INPUT_OBJECT",
+                "name": "KodeInput",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          }
+        ],
+        "interfaces": null,
         "enumValues": null,
         "possibleTypes": null
       },
@@ -477,34 +498,6 @@
         "inputFields": [
           {
             "name": "name",
-            "description": "",
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "username",
-            "description": "",
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "email",
             "description": "",
             "type": {
               "kind": "NON_NULL",
