@@ -16,7 +16,7 @@ fun getShortCode(lines: List<String>, lineNumber: Int): String {
  fun getShortCodeRange(lines: List<String>, lineNumber: Int): Pair<Int, Int> {
     var startIndex = lineNumber - 4
     var endIndex = lineNumber + 3
-    if (lines.size < 6) {
+    if (lines.size < 8) {
         startIndex = 0
         endIndex = lines.lastIndex
         return Pair(startIndex, endIndex)
