@@ -13,14 +13,12 @@ fun getShortCode(lines: List<String>, lineNumber: Int): String {
     return result
 }
 
- fun getShortCodeRange(lines: List<String>, lineNumber: Int): Pair<Int, Int> {
+fun getShortCodeRange(lines: List<String>, lineNumber: Int): Pair<Int, Int> {
+    if (lines.size < 8) {
+        return Pair(0, lines.lastIndex)
+    }
     var startIndex = lineNumber - 4
     var endIndex = lineNumber + 3
-    if (lines.size < 8) {
-        startIndex = 0
-        endIndex = lines.lastIndex
-        return Pair(startIndex, endIndex)
-    }
     while (!(startIndex >= 0 &&
             endIndex <= lines.lastIndex)) {
         if (startIndex < 0) {
