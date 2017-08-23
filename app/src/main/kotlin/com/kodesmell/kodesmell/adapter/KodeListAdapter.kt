@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import com.google.gson.Gson
 import com.kodesmell.kodesmell.R
 import com.kodesmell.kodesmell.model.Kodesmell
+import com.kodesmell.kodesmell.util.getShortCode
 import com.kodesmell.kodesmell.view.DetailActivity
 import io.github.kbiakov.codeview.CodeView
 import io.github.kbiakov.codeview.adapters.Options
@@ -62,14 +63,6 @@ class KodeListAdapter(val kodesmells: List<Kodesmell>) : RecyclerView.Adapter<Ko
                 i.putExtra("kodesmell", Gson().toJson(kode))
                 context.startActivity(i)
             }
-        }
-
-        fun getShortCode(lines: List<String>, lineNumber: Int): String {
-            var result: String = ""
-            for (i in lineNumber - 4..lineNumber + 3) {
-                result += lines[i] + "\n"
-            }
-            return result
         }
     }
 }
